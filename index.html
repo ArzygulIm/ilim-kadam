@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Математическая битва — 9 класс</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div>
+        <div class="eyebrow">МАТЕМАТИЧЕСКАЯ БИТВА</div>
+        <h1>9 класс</h1>
+      </div>
+      <button id="resetBtn" class="reset-btn">↻ Новая игра</button>
+    </header>
+
+    <section class="scoreboard">
+      <div class="team red-team">
+        <span class="team-dot"></span>
+        <div><b>КРАСНАЯ КОМАНДА</b><small>Ход команды</small></div>
+        <strong id="redScore">0</strong>
+      </div>
+
+      <div class="turn-box">
+        <span>СЕЙЧАС ХОДИТ</span>
+        <b id="turnLabel">КРАСНАЯ</b>
+      </div>
+
+      <div class="team blue-team">
+        <strong id="blueScore">0</strong>
+        <div class="blue-info"><b>СИНЯЯ КОМАНДА</b><small>Баллы</small></div>
+        <span class="team-dot"></span>
+      </div>
+    </section>
+
+    <main>
+      <div class="game-info">
+        <div>
+          <h2>Выберите карточку</h2>
+          <p>Команды ходят по очереди. На решение — 2 минуты.</p>
+        </div>
+        <div class="timer" id="timer">02:00</div>
+      </div>
+
+      <div id="cards" class="cards"></div>
+    </main>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-window">
+      <button id="closeModal" class="close">×</button>
+
+      <div class="flip-card-container">
+        <div id="flipCard" class="flip-card">
+          <div class="flip-face flip-front">
+            <span>КАРТОЧКА</span>
+            <b id="cardNumber">1</b>
+            <small>Нажмите «Открыть»</small>
+          </div>
+
+          <div class="flip-face flip-back">
+            <div id="cardType" class="card-type">ВОПРОС</div>
+            <h3 id="question">Вопрос</h3>
+            <div id="specialText" class="special-text hidden"></div>
+            <div id="cardTimer" class="card-timer">02:00</div>
+            <div id="pointsText" class="points-text">+10 баллов</div>
+            <button id="checkBtn" class="check-btn">Проверить ответ</button>
+          </div>
+        </div>
+      </div>
+
+      <button id="openBtn" class="open-btn">Открыть карточку</button>
+
+      <div id="answerPanel" class="answer-panel hidden">
+        <div class="answer-title">Ответ команды:</div>
+        <div class="answer-buttons">
+          <button id="correctBtn" class="correct">✓ Правильно</button>
+          <button id="wrongBtn" class="wrong">✕ Неправильно</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="message" class="message hidden"></div>
+  <script src="script.js"></script>
+</body>
+</html>

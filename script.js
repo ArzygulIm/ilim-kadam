@@ -1,0 +1,368 @@
+// const cardsData = [
+//   { type: "question", points: 10, question: "Решите уравнение: 3x − 7 = 14", answer: "x = 7" },
+//   { type: "question", points: 20, question: "Найдите дискриминант уравнения x² − 5x + 6 = 0.", answer: "D = 1" },
+//   { type: "question", points: 10, question: "Решите систему: x + y = 10, x − y = 2.", answer: "x = 6, y = 4" },
+//   { type: "question", points: 20, question: "Упростите: (a + b)(a - b) - (a - b)², ", answer: "2ab" },
+//   { type: "question", points: 30, question: "Найдите корни: x² − 9 = 0.", answer: "x = −3 и x = 3" },
+//   { type: "question", points: 10, question: "Чему равен sin 30°?", answer: "1/2" },
+//   { type: "question", points: 20, question: "В прямоугольном треугольнике катеты 6 и 8. Найдите гипотенузу.", answer: "10" },
+//   { type: "question", points: 30, question: "Найдите площадь круга радиуса 3. Ответ через π.", answer: "9π" },
+//   { type: "question", points: 20, question: "Решите неравенство: 2x + 3 > 11.", answer: "x > 4" },
+//   { type: "question", points: 10, question: "Найдите 15% от 200.", answer: "30" },
+//   { type: "question", points: 30, question: "Последовательность: 3, 7, 11, 15, ... Найдите 10-й член.", answer: "39" },
+//   { type: "question", points: 20, question: "Найдите сумму первых 10 членов арифметической прогрессии 2, 5, 8, ...", answer: "155" },
+//   { type: "question", points: 30, question: "Если f(x)=2x²−3, найдите f(2).", answer: "5" },
+//   { type: "question", points: 10, question: "Разложите на множители: x² − 16.", answer: "(x−4)(x+4)" },
+//   { type: "question", points: 20, question: "В классе 30 учеников. 40% — девочки. Сколько мальчиков?", answer: "18" },
+//   { type: "question", points: 30, question: "Найдите значение: √144 + √25.", answer: "17" },
+//   { type: "bankrupt", points: 0, question: "БАНКРОТ", special: "Все баллы команды, которая открыла эту карточку, обнуляются!" },
+//   { type: "swap", points: 0, question: "ОБМЕН БАЛЛАМИ", special: "Баллы вашей команды меняются местами с баллами соперников." },
+//   { type: "double", points: 0, question: "ДВОЙНОЙ БАЛЛ", special: "Следующий правильный ответ этой команды принесёт в 2 раза больше баллов." },
+//   { type: "steal", points: 0, question: "КРАЖА БАЛЛОВ", special: "При правильном ответе команда забирает 10 баллов у соперников." }
+// ];
+const cardsData = [
+  // 10 баллов — простые устные вопросы
+  { type: "question", points: 10, question: "Чему равно 2⁵?", answer: "32" },
+  { type: "question", points: 10, question: "Решите устно: 2x = 18", answer: "x = 9" },
+  { type: "question", points: 10, question: "Чему равна сумма углов любого треугольника?", answer: "180°" },
+  { type: "question", points: 10, question: "Раскройте скобки: (a + b)²", answer: "a² + 2ab + b²" },
+  { type: "question", points: 10, question: "Чему равен угол, вертикальный углу в 50°?", answer: "50°" },
+  { type: "question", points: 10, question: "Переведите 50% в обыкновенную дробь.", answer: "1/2" },
+
+  // 20 баллов — базовые свойства и вычисления в уме
+  { type: "question", points: 20, question: "Чему равен катет, лежащий против угла 30° в прямоугольном треугольнике?", answer: "Половине гипотенузы" },
+  { type: "question", points: 20, question: "Чему равно x⁰ для любого x ≠ 0?", answer: "1" },
+  { type: "question", points: 20, question: "Разложите на множители: x² − 25", answer: "(x − 5)(x + 5)" },
+  { type: "question", points: 20, question: "Чему равен второй смежный угол, если первый равен 100°?", answer: "80°" },
+  { type: "question", points: 20, question: "Как называется график функции y = kx + b?", answer: "Прямая" },
+  { type: "question", points: 20, question: "Найдите 10% от 450.", answer: "45" },
+
+  // 30 баллов — чуть больше устных рассуждений
+  { type: "question", points: 30, question: "Углы при основании равнобедренного треугольника равны по 50°. Найдите угол при вершине.", answer: "80°" },
+  { type: "question", points: 30, question: "Упростите устно: a³ · a⁴ / a⁵", answer: "a²" },
+  { type: "question", points: 30, question: "Чему равен периметр равностороннего треугольника со стороной 7 см?", answer: "21 см" },
+  { type: "question", points: 30, question: "Назовите точку пересечения графика y = 3x − 4 с осью OY.", answer: "(0; −4)" },
+
+  // Специальные карточки
+  { type: "bankrupt", points: 0, question: "БАНКРОТ", special: "Все баллы команды, которая открыла эту карточку, обнуляются!" },
+  { type: "swap", points: 0, question: "ОБМЕН БАЛЛАМИ", special: "Баллы вашей команды меняются местами с баллами соперников." },
+  { type: "double", points: 0, question: "ДВОЙНОЙ БАЛЛ", special: "Следующий правильный ответ этой команды принесёт в 2 раза больше баллов." },
+  { type: "steal", points: 0, question: "КРАЖА БАЛЛОВ", special: "При правильном ответе команда забирает 10 баллов у соперников." }
+];
+
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+let redScore = 0;
+let blueScore = 0;
+let currentTeam = "red";
+let currentCard = null;
+let timerInterval = null;
+let seconds = 120;
+let doubleNext = { red: false, blue: false };
+let gameOver = false;
+
+const cardsEl = document.getElementById("cards");
+const modal = document.getElementById("modal");
+const flipCard = document.getElementById("flipCard");
+const openBtn = document.getElementById("openBtn");
+const checkBtn = document.getElementById("checkBtn");
+const answerPanel = document.getElementById("answerPanel");
+const timerEl = document.getElementById("timer");
+const cardTimerEl = document.getElementById("cardTimer");
+
+function renderCards() {
+  cardsEl.innerHTML = "";
+  cardsData.forEach((_, i) => {
+    const btn = document.createElement("button");
+    btn.className = "card";
+    btn.textContent = i + 1;
+    btn.dataset.index = i;
+    btn.addEventListener("click", () => chooseCard(i));
+    cardsEl.appendChild(btn);
+  });
+}
+
+function chooseCard(index) {
+  if (gameOver) return;
+  const btn = cardsEl.children[index];
+  if (btn.classList.contains("used")) return;
+
+  currentCard = index;
+  btn.classList.add("used");
+  modal.classList.remove("hidden");
+  flipCard.classList.remove("flipped");
+  openBtn.disabled = false;
+  openBtn.classList.remove("hidden");
+  answerPanel.classList.add("hidden");
+  checkBtn.classList.remove("hidden");
+
+  const data = cardsData[index];
+  document.getElementById("cardNumber").textContent = index + 1;
+  document.getElementById("cardType").textContent = getTypeLabel(data.type);
+  document.getElementById("question").textContent = data.question;
+  document.getElementById("pointsText").textContent =
+    data.type === "question" ? `+${data.points} баллов` : "СПЕЦИАЛЬНАЯ КАРТОЧКА";
+  document.getElementById("specialText").textContent = data.special || `Ответ: ${data.answer || ""}`;
+  document.getElementById("specialText").classList.toggle("hidden", data.type === "question");
+
+  // Текст кнопки зависит от типа карточки:
+  // у вопроса — сначала проверяем ответ, у спецкарточки — сразу закрываем и применяем эффект
+  checkBtn.textContent = data.type === "question" ? "Проверить ответ" : "Закрыть карточку";
+
+  // Сразу после открытия карточки запускается 2-минутный таймер.
+  startTimer();
+}
+
+function getTypeLabel(type) {
+  return {
+    question: "ВОПРОС",
+    bankrupt: "⚠ БАНКРОТ",
+    swap: "↔ ОБМЕН",
+    double: "×2 ДВОЙНОЙ БАЛЛ",
+    steal: "★ КРАЖА БАЛЛОВ"
+  }[type];
+}
+
+function openCard() {
+  flipCard.classList.add("flipped");
+  openBtn.classList.add("hidden");
+}
+
+function showAnswerPanel() {
+  const data = cardsData[currentCard];
+
+  // Показываем правильный ответ прямо на обратной стороне карточки,
+  // чтобы учитель мог сравнить его с ответом команды.
+  if (data.type === "question") {
+    document.getElementById("specialText").textContent =
+      `Правильный ответ: ${data.answer}`;
+    document.getElementById("specialText").classList.remove("hidden");
+  } else {
+    document.getElementById("specialText").textContent =
+      data.special || "Специальная карточка";
+    document.getElementById("specialText").classList.remove("hidden");
+  }
+
+  answerPanel.classList.remove("hidden");
+  checkBtn.classList.add("hidden");
+}
+
+function finishCard(correct) {
+  clearInterval(timerInterval);
+  const data = cardsData[currentCard];
+
+  if (data.type === "question") {
+    if (correct) {
+      let points = data.points;
+      if (doubleNext[currentTeam]) {
+        points *= 2;
+        doubleNext[currentTeam] = false;
+        showMessage(`×2! Команда получает ${points} баллов.`);
+      } else {
+        showMessage(`+${points} баллов!`);
+      }
+      addScore(currentTeam, points);
+    } else {
+      showMessage("Баллы за вопрос не начислены.");
+    }
+  } else {
+    applySpecial(data.type, correct);
+  }
+
+  closeModal();
+  switchTurn();
+  checkEnd();
+}
+
+function applySpecial(type, correct) {
+  if (type === "bankrupt") {
+    setScore(currentTeam, 0);
+    showMessage("БАНКРОТ! Баллы команды обнулены.");
+  }
+
+  if (type === "swap") {
+    [redScore, blueScore] = [blueScore, redScore];
+    updateScores();
+    showMessage("Баллы команд обменены!");
+  }
+
+  if (type === "double") {
+    doubleNext[currentTeam] = true;
+    showMessage("Следующий правильный ответ — ×2!");
+  }
+
+  if (type === "steal") {
+    if (correct) {
+      const stolen = Math.min(10, getScore(otherTeam()));
+      setScore(otherTeam(), getScore(otherTeam()) - stolen);
+      addScore(currentTeam, stolen);
+      showMessage(`Команда забрала ${stolen} баллов у соперников.`);
+    } else {
+      showMessage("Кража не сработала.");
+    }
+  }
+}
+
+function addScore(team, points) {
+  if (team === "red") redScore += points;
+  else blueScore += points;
+  updateScores();
+}
+
+function setScore(team, value) {
+  if (team === "red") redScore = Math.max(0, value);
+  else blueScore = Math.max(0, value);
+  updateScores();
+}
+
+function getScore(team) {
+  return team === "red" ? redScore : blueScore;
+}
+
+function otherTeam() {
+  return currentTeam === "red" ? "blue" : "red";
+}
+
+function updateScores() {
+  document.getElementById("redScore").textContent = redScore;
+  document.getElementById("blueScore").textContent = blueScore;
+}
+
+function switchTurn() {
+  currentTeam = currentTeam === "red" ? "blue" : "red";
+  document.getElementById("turnLabel").textContent =
+    currentTeam === "red" ? "КРАСНАЯ" : "СИНЯЯ";
+  document.getElementById("turnLabel").style.color =
+    currentTeam === "red" ? "#e53935" : "#1976d2";
+  resetTimerDisplay();
+}
+
+function startTimer() {
+  clearInterval(timerInterval);
+  seconds = 120;
+  updateTimer();
+
+  timerInterval = setInterval(() => {
+    seconds--;
+    updateTimer();
+    if (seconds <= 0) {
+      clearInterval(timerInterval);
+      showMessage("⏰ Время вышло! Ответ считается неправильным.");
+
+      const data = cardsData[currentCard];
+      if (data.type === "question") {
+        // Показываем правильный ответ перед закрытием, чтобы команда его видела
+        showAnswerPanel();
+        setTimeout(() => finishCard(false), 4000);
+      } else {
+        // Спецкарточка — сразу применяем эффект и закрываем
+        finishCard(false);
+      }
+    }
+  }, 1000);
+}
+
+function updateTimer() {
+  const min = String(Math.floor(seconds / 60)).padStart(2, "0");
+  const sec = String(seconds % 60).padStart(2, "0");
+  const value = `${min}:${sec}`;
+
+  timerEl.textContent = value;
+  if (cardTimerEl) cardTimerEl.textContent = value;
+
+  timerEl.classList.toggle("warning", seconds <= 60 && seconds > 20);
+  timerEl.classList.toggle("danger", seconds <= 20);
+
+  if (cardTimerEl) {
+    cardTimerEl.classList.toggle("warning", seconds <= 60 && seconds > 20);
+    cardTimerEl.classList.toggle("danger", seconds <= 20);
+  }
+}
+
+function resetTimerDisplay() {
+  clearInterval(timerInterval);
+  seconds = 120;
+  timerEl.className = "timer";
+  timerEl.textContent = "02:00";
+  if (cardTimerEl) {
+    cardTimerEl.className = "card-timer";
+    cardTimerEl.textContent = "02:00";
+  }
+}
+
+function closeModal() {
+  clearInterval(timerInterval);
+  modal.classList.add("hidden");
+  currentCard = null;
+}
+
+function checkEnd() {
+  const used = document.querySelectorAll(".card.used").length;
+  if (used === cardsData.length) {
+    gameOver = true;
+    let text = `Игра окончена! Красная: ${redScore}, Синяя: ${blueScore}.`;
+    showMessage(text);
+    setTimeout(() => {
+      alert(`${text}\nСпасибо за игру!`);
+    }, 400);
+  }
+}
+
+function showMessage(text) {
+  const el = document.getElementById("message");
+  el.textContent = text;
+  el.classList.remove("hidden");
+  clearTimeout(showMessage.timeout);
+  showMessage.timeout = setTimeout(() => el.classList.add("hidden"), 2600);
+}
+
+function resetGame() {
+  clearInterval(timerInterval);
+  redScore = 0;
+  blueScore = 0;
+  currentTeam = "red";
+  currentCard = null;
+  doubleNext = { red: false, blue: false };
+  gameOver = false;
+  updateScores();
+  document.getElementById("turnLabel").textContent = "КРАСНАЯ";
+  document.getElementById("turnLabel").style.color = "#e53935";
+  resetTimerDisplay();
+  modal.classList.add("hidden");
+  shuffleArray(cardsData);
+  renderCards();
+}
+
+openBtn.addEventListener("click", openCard);
+
+// Кнопка "Проверить ответ / Закрыть карточку" ведёт себя по-разному
+// в зависимости от типа карточки
+checkBtn.addEventListener("click", () => {
+  const data = cardsData[currentCard];
+  if (data.type === "question") {
+    showAnswerPanel();
+  } else {
+    // Спецкарточка — эффект применяется сразу, без выбора "правильно/неправильно"
+    finishCard(true);
+  }
+});
+
+document.getElementById("correctBtn").addEventListener("click", () => finishCard(true));
+document.getElementById("wrongBtn").addEventListener("click", () => finishCard(false));
+document.getElementById("closeModal").addEventListener("click", closeModal);
+document.getElementById("resetBtn").addEventListener("click", resetGame);
+
+modal.addEventListener("click", e => {
+  if (e.target === modal) closeModal();
+});
+
+shuffleArray(cardsData);
+renderCards();
+updateScores();
