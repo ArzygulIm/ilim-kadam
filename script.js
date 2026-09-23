@@ -1,54 +1,54 @@
-const cardsData = [
-  { type: "question", points: 10, question: "Решите уравнение: 3x − 7 = 14", answer: "x = 7" },
-  { type: "question", points: 20, question: "Найдите дискриминант уравнения x² − 5x + 6 = 0.", answer: "D = 1" },
-  { type: "question", points: 10, question: "Решите систему: x + y = 10, x − y = 2.", answer: "x = 6, y = 4" },
-  { type: "question", points: 20, question: "Упростите: (a + b)(a - b) - (a - b)², ", answer: "2ab" },
-  { type: "question", points: 30, question: "Найдите корни: x² − 9 = 0.", answer: "x = −3 и x = 3" },
-  { type: "question", points: 10, question: "Чему равен sin 30°?", answer: "1/2" },
-  { type: "question", points: 20, question: "В прямоугольном треугольнике катеты 6 и 8. Найдите гипотенузу.", answer: "10" },
-  { type: "question", points: 30, question: "Найдите площадь круга радиуса 3. Ответ через π.", answer: "9π" },
-  { type: "question", points: 20, question: "Решите неравенство: 2x + 3 > 11.", answer: "x > 4" },
-  { type: "question", points: 10, question: "Найдите 15% от 200.", answer: "30" },
-  { type: "question", points: 30, question: "Последовательность: 3, 7, 11, 15, ... Найдите 10-й член.", answer: "39" },
-  { type: "question", points: 20, question: "Найдите сумму первых 10 членов арифметической прогрессии 2, 5, 8, ...", answer: "155" },
-  { type: "question", points: 30, question: "Если f(x)=2x²−3, найдите f(2).", answer: "5" },
-  { type: "question", points: 10, question: "Разложите на множители: x² − 16.", answer: "(x−4)(x+4)" },
-  { type: "question", points: 20, question: "В классе 30 учеников. 40% — девочки. Сколько мальчиков?", answer: "18" },
-  { type: "question", points: 30, question: "Найдите значение: √144 + √25.", answer: "17" },
-  { type: "bankrupt", points: 0, question: "БАНКРОТ", special: "Все баллы команды, которая открыла эту карточку, обнуляются!" },
-  { type: "swap", points: 0, question: "ОБМЕН БАЛЛАМИ", special: "Баллы вашей команды меняются местами с баллами соперников." },
-  { type: "double", points: 0, question: "ДВОЙНОЙ БАЛЛ", special: "Следующий правильный ответ этой команды принесёт в 2 раза больше баллов." },
-  { type: "steal", points: 0, question: "КРАЖА БАЛЛОВ", special: "При правильном ответе команда забирает 10 баллов у соперников." }
-];
 // const cardsData = [
-//   // 10 баллов — простые устные вопросы
-//   { type: "question", points: 10, question: "Чему равно 2⁵?", answer: "32" },
-//   { type: "question", points: 10, question: "Решите устно: 2x = 18", answer: "x = 9" },
-//   { type: "question", points: 10, question: "Чему равна сумма углов любого треугольника?", answer: "180°" },
-//   { type: "question", points: 10, question: "Раскройте скобки: (a + b)²", answer: "a² + 2ab + b²" },
-//   { type: "question", points: 10, question: "Чему равен угол, вертикальный углу в 50°?", answer: "50°" },
-//   { type: "question", points: 10, question: "Переведите 50% в обыкновенную дробь.", answer: "1/2" },
-
-//   // 20 баллов — базовые свойства и вычисления в уме
-//   { type: "question", points: 20, question: "Чему равен катет, лежащий против угла 30° в прямоугольном треугольнике?", answer: "Половине гипотенузы" },
-//   { type: "question", points: 20, question: "Чему равно x⁰ для любого x ≠ 0?", answer: "1" },
-//   { type: "question", points: 20, question: "Разложите на множители: x² − 25", answer: "(x − 5)(x + 5)" },
-//   { type: "question", points: 20, question: "Чему равен второй смежный угол, если первый равен 100°?", answer: "80°" },
-//   { type: "question", points: 20, question: "Как называется график функции y = kx + b?", answer: "Прямая" },
-//   { type: "question", points: 20, question: "Найдите 10% от 450.", answer: "45" },
-
-//   // 30 баллов — чуть больше устных рассуждений
-//   { type: "question", points: 30, question: "Углы при основании равнобедренного треугольника равны по 50°. Найдите угол при вершине.", answer: "80°" },
-//   { type: "question", points: 30, question: "Упростите устно: a³ · a⁴ / a⁵", answer: "a²" },
-//   { type: "question", points: 30, question: "Чему равен периметр равностороннего треугольника со стороной 7 см?", answer: "21 см" },
-//   { type: "question", points: 30, question: "Назовите точку пересечения графика y = 3x − 4 с осью OY.", answer: "(0; −4)" },
-
-//   // Специальные карточки
+//   { type: "question", points: 10, question: "Решите уравнение: 3x − 7 = 14", answer: "x = 7" },
+//   { type: "question", points: 20, question: "Найдите дискриминант уравнения x² − 5x + 6 = 0.", answer: "D = 1" },
+//   { type: "question", points: 10, question: "Решите систему: x + y = 10, x − y = 2.", answer: "x = 6, y = 4" },
+//   { type: "question", points: 20, question: "Упростите: (a + b)(a - b) - (a - b)², ", answer: "2ab" },
+//   { type: "question", points: 30, question: "Найдите корни: x² − 9 = 0.", answer: "x = −3 и x = 3" },
+//   { type: "question", points: 10, question: "Чему равен sin 30°?", answer: "1/2" },
+//   { type: "question", points: 20, question: "В прямоугольном треугольнике катеты 6 и 8. Найдите гипотенузу.", answer: "10" },
+//   { type: "question", points: 30, question: "Найдите площадь круга радиуса 3. Ответ через π.", answer: "9π" },
+//   { type: "question", points: 20, question: "Решите неравенство: 2x + 3 > 11.", answer: "x > 4" },
+//   { type: "question", points: 10, question: "Найдите 15% от 200.", answer: "30" },
+//   { type: "question", points: 30, question: "Последовательность: 3, 7, 11, 15, ... Найдите 10-й член.", answer: "39" },
+//   { type: "question", points: 20, question: "Найдите сумму первых 10 членов арифметической прогрессии 2, 5, 8, ...", answer: "155" },
+//   { type: "question", points: 30, question: "Если f(x)=2x²−3, найдите f(2).", answer: "5" },
+//   { type: "question", points: 10, question: "Разложите на множители: x² − 16.", answer: "(x−4)(x+4)" },
+//   { type: "question", points: 20, question: "В классе 30 учеников. 40% — девочки. Сколько мальчиков?", answer: "18" },
+//   { type: "question", points: 30, question: "Найдите значение: √144 + √25.", answer: "17" },
 //   { type: "bankrupt", points: 0, question: "БАНКРОТ", special: "Все баллы команды, которая открыла эту карточку, обнуляются!" },
 //   { type: "swap", points: 0, question: "ОБМЕН БАЛЛАМИ", special: "Баллы вашей команды меняются местами с баллами соперников." },
 //   { type: "double", points: 0, question: "ДВОЙНОЙ БАЛЛ", special: "Следующий правильный ответ этой команды принесёт в 2 раза больше баллов." },
 //   { type: "steal", points: 0, question: "КРАЖА БАЛЛОВ", special: "При правильном ответе команда забирает 10 баллов у соперников." }
 // ];
+const cardsData = [
+  // 10 баллов — простые устные вопросы
+  { type: "question", points: 10, question: "Чему равно 2⁵?", answer: "32" },
+  { type: "question", points: 10, question: "Решите устно: 2x = 18", answer: "x = 9" },
+  { type: "question", points: 10, question: "Чему равна сумма углов любого треугольника?", answer: "180°" },
+  { type: "question", points: 10, question: "Раскройте скобки: (a + b)²", answer: "a² + 2ab + b²" },
+  { type: "question", points: 10, question: "Чему равен угол, вертикальный углу в 50°?", answer: "50°" },
+  { type: "question", points: 10, question: "Переведите 50% в обыкновенную дробь.", answer: "1/2" },
+
+  // 20 баллов — базовые свойства и вычисления в уме
+  { type: "question", points: 20, question: "Чему равен катет, лежащий против угла 30° в прямоугольном треугольнике?", answer: "Половине гипотенузы" },
+  { type: "question", points: 20, question: "Чему равно x⁰ для любого x ≠ 0?", answer: "1" },
+  { type: "question", points: 20, question: "Разложите на множители: x² − 25", answer: "(x − 5)(x + 5)" },
+  { type: "question", points: 20, question: "Чему равен второй смежный угол, если первый равен 100°?", answer: "80°" },
+  { type: "question", points: 20, question: "Как называется график функции y = kx + b?", answer: "Прямая" },
+  { type: "question", points: 20, question: "Найдите 10% от 450.", answer: "45" },
+
+  // 30 баллов — чуть больше устных рассуждений
+  { type: "question", points: 30, question: "Углы при основании равнобедренного треугольника равны по 50°. Найдите угол при вершине.", answer: "80°" },
+  { type: "question", points: 30, question: "Упростите устно: a³ · a⁴ / a⁵", answer: "a²" },
+  { type: "question", points: 30, question: "Чему равен периметр равностороннего треугольника со стороной 7 см?", answer: "21 см" },
+  { type: "question", points: 30, question: "Назовите точку пересечения графика y = 3x − 4 с осью OY.", answer: "(0; −4)" },
+
+  // Специальные карточки
+  { type: "bankrupt", points: 0, question: "БАНКРОТ", special: "Все баллы команды, которая открыла эту карточку, обнуляются!" },
+  { type: "swap", points: 0, question: "ОБМЕН БАЛЛАМИ", special: "Баллы вашей команды меняются местами с баллами соперников." },
+  { type: "double", points: 0, question: "ДВОЙНОЙ БАЛЛ", special: "Следующий правильный ответ этой команды принесёт в 2 раза больше баллов." },
+  { type: "steal", points: 0, question: "КРАЖА БАЛЛОВ", special: "При правильном ответе команда забирает 10 баллов у соперников." }
+];
 
 // const cardsData = [
 //   // 10 баллов — базовые понятия и самые простые вопросы
